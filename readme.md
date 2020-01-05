@@ -24,6 +24,6 @@ In a new terminal window:
 
 ## Make requests
 From the host machine via curl or postman:
-- GET localhost:8088/calc/add?a=3&b=3
-- GET localhost:8088/calc/multiply?a=3&b=3
-- GET localhost:8088/world
+- `curl -X GET 'localhost:8088/calc/add?a=3&b=3'`
+- `curl -X GET 'localhost:8088/calc/multiply?a=3&b=3'`
+- `curl -X GET 'localhost:8088/world'`
