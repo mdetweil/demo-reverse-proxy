@@ -4,6 +4,7 @@ FROM golang:1.13.4
 ENV GOBIN=/go/bin
 ENV GO111MODULE=on
 
+RUN go clean --modcache
 # install Goa from source
 RUN go get -u goa.design/goa/v3
 RUN go get -u goa.design/goa/v3/...
@@ -16,11 +17,12 @@ RUN go install github.com/golang/protobuf/protoc-gen-go
 RUN apt update && apt upgrade -y 
 RUN apt install unzip -y 
 
+
 # Proceed with protoc installation
 RUN wget -O /go/bin/protoc.zip https://github.com/protocolbuffers/protobuf/releases/download/v3.10.0/protoc-3.10.0-linux-x86_64.zip
 RUN unzip /go/bin/protoc.zip -d /temp
 RUN cp /temp/bin/protoc /go/bin/
 
-WORKDIR /app
+WORKDIR /demo-reverse-proxy
 
 RUN go get -u golang.org/x/lint/golint

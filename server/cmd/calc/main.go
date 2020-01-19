@@ -11,7 +11,7 @@ import (
 	"strings"
 	"sync"
 
-	calcapi "github.com/mdetweil/demo-reverse-proxy/server"
+	calcapi "github.com/mdetweil/demo-reverse-proxy/server/api"
 	calc "github.com/mdetweil/demo-reverse-proxy/server/gen/calc"
 	world "github.com/mdetweil/demo-reverse-proxy/server/gen/world"
 )

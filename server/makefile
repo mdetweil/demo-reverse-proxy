@@ -1,11 +1,8 @@
 DEVCONTAINER=dev
 DEVDOCKERFILENAME=dockerfile
-APINAME=demo
+APINAME=grpc_server
 
-clean: ## Clean the directories
-	rm -rf /bin /gen || true
-
-gen: clean ## Generate the goa boilerplate
+gen: ## Generate the goa boilerplate
 	@goa gen github.com/mdetweil/demo-reverse-proxy/server/design
 
 dev: ## Build the container with the local volume attached for dev purposes

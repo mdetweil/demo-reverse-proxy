@@ -5,14 +5,14 @@ services:
         ports: 
         - "8080:8080"
         volumes: 
-        - ./server:/app
+        - ./:/app
         network_mode: "host"
-        command: bash -c "make build && ./bin/demo"
-    proxy:
-        build: ./proxy
+        command: bash -c "make -C server/ build && ./server/bin/grpc_server"
+    http_proxy:
+        build: ./http_proxy
         ports:
         - "8088:8088"
         volumes:
-        - ./proxy:/app
+        - ./:/app
         network_mode: "host"
-        command: bash -c "make build && ./bin/proxy"
+        command: bash -c "make -C http_proxy/ build && ./http_proxy/bin/http_proxy"
